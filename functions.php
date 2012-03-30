@@ -58,7 +58,7 @@ function render_loop( $loop_name, $query_args = '' ){
     
     if( $query_object->have_posts() ) :
     
-      render_before();
+      if (function_exists(render_before)){ render_before(); }
       
         while( $query_object->have_posts() ) : $query_object->the_post();
         
@@ -66,7 +66,7 @@ function render_loop( $loop_name, $query_args = '' ){
         
         endwhile;
       
-      render_after();
+      if (function_exists(render_after)){ render_after(); }
     
     endif;
   
@@ -74,7 +74,7 @@ function render_loop( $loop_name, $query_args = '' ){
     
     if( have_posts() ) :
     
-      render_before();
+      if (function_exists(render_before)){ render_before(); }
       
         while( have_posts() ) : the_post();
         
@@ -82,7 +82,7 @@ function render_loop( $loop_name, $query_args = '' ){
         
         endwhile;
       
-      render_after();
+      if (function_exists(render_after)){ render_after(); }
     
     endif;
 
