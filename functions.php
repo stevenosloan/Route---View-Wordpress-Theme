@@ -39,12 +39,55 @@ function the_category_unlinked($separator = '') {
 
 define( 'THEME_DIR', dirname(__FILE__) );
 
-function render_layout( $name ){
-  include( THEME_DIR . '/views/layouts/' . $name . '.php' );
+function render_layout( $layout_name ){
+  include ( THEME_DIR . '/views/layouts/' . $layout_name . '.php' );
 }
 
-function render_partial( $name ){
-  include( THEME_DIR . '/views/partials/' . $name . '.php' );
+function render_partial( $partial_name ){
+  include ( THEME_DIR . '/views/partials/' . $partial_name . '.php') ;
+}
+
+function render_loop( $loop_name, $query_args = '' ){
+
+  // get the before, during, and after functions of loop
+  include THEME_DIR.'/views/loops/'.$loop_name.'.php';
+
+  if( is_array($query_args) ){
+  
+    $query_object = new WP_Query( $query_args );
+    
+    if( $query_object->have_posts() ) :
+    
+      render_before();
+      
+        while( $query_object->have_posts() ) : $query_object->the_post();
+        
+          render_while();
+        
+        endwhile;
+      
+      render_after();
+    
+    endif;
+  
+  } else {
+    
+    if( have_posts() ) :
+    
+      render_before();
+      
+        while( have_posts() ) : the_post();
+        
+          render_while();
+        
+        endwhile;
+      
+      render_after();
+    
+    endif;
+
+  }
+  
 }
 
 ?>

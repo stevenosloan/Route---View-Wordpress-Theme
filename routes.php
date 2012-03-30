@@ -4,5 +4,9 @@
   **  http://codex.wordpress.org/Conditional_Tags
   */
   
-  render_layout( 'default' );
+  if( is_single() ){
+    render_layout( 'single' );
+  } else { 
+    render_layout( 'default' );
+  }
 ?>
