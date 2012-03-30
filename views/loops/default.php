@@ -1,5 +1,6 @@
 <?php
-    
+class default{
+
   function render_before(){
   
     echo '<ul>';
@@ -18,4 +19,5 @@
   
   }
   
+}  
 ?>

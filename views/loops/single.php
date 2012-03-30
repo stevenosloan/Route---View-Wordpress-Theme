@@ -1,5 +1,6 @@
 <?php
-    
+class single{
+
   function render_before(){
   
     echo '<ul>';
@@ -17,5 +18,6 @@
     echo '</ul>';
   
   }
-  
+
+}  
 ?>

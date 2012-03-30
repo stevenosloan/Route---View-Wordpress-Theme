@@ -58,15 +58,15 @@ function render_loop( $loop_name, $query_args = '' ){
     
     if( $query_object->have_posts() ) :
     
-      if (function_exists(render_before)){ render_before(); }
+      if_available( $loop_name, 'render_before' );
       
         while( $query_object->have_posts() ) : $query_object->the_post();
         
-          render_while();
-        
+          if_available( $loop_name, 'render_while' );
+          
         endwhile;
       
-      if (function_exists(render_after)){ render_after(); }
+      if_available( $loop_name, 'render_after' );
     
     endif;
   
@@ -74,18 +74,26 @@ function render_loop( $loop_name, $query_args = '' ){
     
     if( have_posts() ) :
     
-      if (function_exists(render_before)){ render_before(); }
+      if_available( $loop_name, 'render_before' );
       
         while( have_posts() ) : the_post();
         
-          render_while();
-        
+          if_available( $loop_name, 'render_while' );
+          
         endwhile;
       
-      if (function_exists(render_after)){ render_after(); }
+      if_available( $loop_name, 'render_after' );
     
     endif;
 
+  }
+  
+}
+
+function if_available( $class_name, $method_name ){
+  
+  if( method_exists( $class_name, $method_name ) ){
+    call_user_func( $class_name.'::'.$method_name );
   }
   
 }
