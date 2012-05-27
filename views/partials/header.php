@@ -15,12 +15,13 @@
 	?>
 	
 	<title><?php bloginfo('name') ?><?php wp_title(' - '); ?></title>
-	
-	<link rel="stylesheet" href="<?php echo $asset_url; ?>css/main<?php echo '.' . filemtime( $asset_directory . 'css/main.css'); ?>.css" />
-	<link rel="stylesheet" href="<?php echo $asset_url; ?>css/plugins<?php echo '.' . filemtime( $asset_directory . 'css/plugins.css'); ?>.css" />
 	<link rel="icon" href="<?php echo $asset_url; ?>images/favicon.png" type="image/png" />
-	
-	<script type="text/javascript" src="<?php echo $asset_url; ?>scripts/modernizr-build<?php echo '.' . filemtime( $asset_directory . 'scripts/modernizr-build.js'); ?>.js"></script>
+
+  <?php 
+    include_stylesheet( 'main' );
+    include_stylesheet( 'plugins' );
+    include_script( 'modernizr-build' ); 
+  ?>
   <script type="text/javascript">
     
     // be sure to add a customized modernizr build
