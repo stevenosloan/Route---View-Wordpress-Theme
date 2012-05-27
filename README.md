@@ -48,3 +48,12 @@ In R&V loops are partials written in a specific way. They are placed in the `/vi
         // do stuff after the loop, if there are posts
       }
     }
+
+### Assets
+Currently there are two helper functions for including [rev'd](https://github.com/h5bp/html5-boilerplate/wiki/cachebusting) versions of stylesheets and scripts.
+
+`include_stylesheet( $stylesheet_name );`
+Will include a link to the stylesheet at `/assets/css/$stylesheet_name.css` with a revision number applied
+
+`include_script( $script_name );`
+Will include a link to the script at `/assets/scripts/$script_name.js` with a revision number applied
