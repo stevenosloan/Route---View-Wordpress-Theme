@@ -1,10 +1,20 @@
 Route & View Based Wordpress Theme
 ==================================
 
-# functions
-render_layout( $layout_name )
+R&V is a light theme framework intended to make development of complex Wordpress-as-CMS themes a bit more sane. It comes as a few helper functions and an organizational guideline.
 
-render_partial( $partial_name )
-}
 
-render_loop( $loop_name, $query_args /*array, optional*/ ){
+Helper Functions
+----------------
+
+
+### Layouts
+`render_layout( $layout_name );`
+
+### Partials
+`render_partial( $partial_name );`
+
+### Loops
+`render_loop( $loop_name, $query_args /*array, optional*/ );`
+
+Each loop is a class with a `render_while` method, and an optional `render_before` and `render_after` method
