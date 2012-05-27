@@ -17,4 +17,18 @@ Helper Functions
 ### Loops
 `render_loop( $loop_name, $query_args /*array, optional*/ );`
 
-Each loop is a class with a `render_while` method, and an optional `render_before` and `render_after` method
+In R&V loops are partials written in a specific way. They are placed in the `/views/loops` folder, and the loops name and file name must match. Each loop is a class with a `render_while` method, and an optional `render_before` and `render_after` method.
+
+`class LOOP_NAME{
+  function render_before(){ /* optional */
+    // do stuff before the loop, if there are posts
+  }
+
+  function render_while(){
+    // do stuff during the loop
+  }
+
+  function render_after(){ /* optional */
+    // do stuff after the loop, if there are posts
+  }
+}`
