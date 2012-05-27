@@ -7,7 +7,7 @@ R&V is a light theme framework intended to make development of complex Wordpress
 Routes
 ------
 
-Routes are defined in the `/routes.php` file and drive what layout is displayed on any given condition. A full list of the conditional tags available through Wordpress is available [http://codex.wordpress.org/Conditional_Tags](here). An simple example would be:
+Routes are defined in the `/routes.php` file and drive what layout is displayed on any given condition. A full list of the conditional tags available through Wordpress is available [here](http://codex.wordpress.org/Conditional_Tags). An simple example would be:
 
     if( is_single() ){
       render_layout( 'single' );
