@@ -103,7 +103,7 @@ function include_script( $script_name ){
   $script_url = get_bloginfo('template_url') . '/assets/scripts/';
   $script_directory = get_stylesheet_directory() . '/assets/scripts/';
 
-  echo '<script type="text/javascript" src="', $script_url, $script_name, filemtime( $script_directory . $script_name . ".js"), '.js', '" ></script>';
+  echo '<script type="text/javascript" src="', $script_url, $script_name, '.', filemtime( $script_directory . $script_name . ".js"), '.js', '" ></script>';
 
 }
 
@@ -112,7 +112,7 @@ function include_stylesheet( $stylesheet_name ){
   $stylesheet_url = get_bloginfo('template_url') . '/assets/css/';
   $stylesheet_directory = get_stylesheet_directory() . '/assets/css/';
 
-  echo '<link rel="stylesheet" href="', $stylesheet_url, $stylesheet_name, filemtime( $stylesheet_directory . $stylesheet_name . ".css"), '.css', '" />';
+  echo '<link rel="stylesheet" href="', $stylesheet_url, $stylesheet_name, '.', filemtime( $stylesheet_directory . $stylesheet_name . ".css"), '.css', '" />';
 
 }
 
