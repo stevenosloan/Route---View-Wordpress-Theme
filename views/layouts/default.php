@@ -3,10 +3,7 @@
   
     echo '<h1>Default Layout</h1>';
     
-    $loop_args = array(
-      cat => 1
-    );
-    render_loop( 'default', $loop_args );
+    include_loop( 'default' );
   
   render_partial('footer');
 ?>

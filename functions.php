@@ -47,55 +47,8 @@ function render_partial( $partial_name ){
   include ( THEME_DIR . '/views/partials/' . $partial_name . '.php') ;
 }
 
-function render_loop( $loop_name, $query_args = '' ){
-
-  // get the before, during, and after functions of loop
-  include THEME_DIR.'/views/loops/'.$loop_name.'.php';
-
-  if( is_array($query_args) ){
-  
-    $query_object = new WP_Query( $query_args );
-    
-    if( $query_object->have_posts() ) :
-    
-      if_available( $loop_name, 'render_before' );
-      
-        while( $query_object->have_posts() ) : $query_object->the_post();
-        
-          if_available( $loop_name, 'render_while' );
-          
-        endwhile;
-      
-      if_available( $loop_name, 'render_after' );
-    
-    endif;
-  
-  } else {
-    
-    if( have_posts() ) :
-    
-      if_available( $loop_name, 'render_before' );
-      
-        while( have_posts() ) : the_post();
-        
-          if_available( $loop_name, 'render_while' );
-          
-        endwhile;
-      
-      if_available( $loop_name, 'render_after' );
-    
-    endif;
-
-  }
-  
-}
-
-function if_available( $class_name, $method_name ){
-  
-  if( method_exists( $class_name, $method_name ) ){
-    call_user_func( $class_name.'::'.$method_name );
-  }
-  
+function include_loop( $loop_name ){
+  include ( THEME_DIR . '/views/loops/' . $loop_name . '.php') ;
 }
 
 function include_script( $script_name ){

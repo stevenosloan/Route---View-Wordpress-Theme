@@ -31,23 +31,7 @@ If you are coming from some other environments, layouts will act a little differ
 `render_partial( $partial_name );`
 
 ### Loops
-`render_loop( $loop_name, $query_args /*array, optional*/ );`
-
-In R&V loops are partials written in a specific way. They are placed in the `/views/loops` folder, and the loops name and file name must match. Each loop is a class with a `render_while` method, and an optional `render_before` and `render_after` method.
-
-    class LOOP_NAME{
-      function render_before(){ /* optional */
-        // do stuff before the loop, if there are posts
-      }
-
-      function render_while(){
-        // do stuff during the loop
-      }
-
-      function render_after(){ /* optional */
-        // do stuff after the loop, if there are posts
-      }
-    }
+`include_loop( $loop_name );`
 
 ### Assets
 Currently there are two helper functions for including [rev'd](https://github.com/h5bp/html5-boilerplate/wiki/cachebusting) versions of stylesheets and scripts.
