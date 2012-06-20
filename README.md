@@ -34,7 +34,7 @@ If you are coming from some other environments, layouts will act a little differ
 `include_loop( $loop_name );`
 
 ### Assets
-Currently there are two helper functions for including [rev'd](https://github.com/h5bp/html5-boilerplate/wiki/cachebusting) versions of stylesheets and scripts.
+Currently there are two helper functions for including [revisioned](https://github.com/h5bp/html5-boilerplate/wiki/cachebusting) versions of stylesheets and scripts.
 
 
 `include_stylesheet( $stylesheet_name );`
@@ -45,3 +45,23 @@ Will include a link to the stylesheet at `/assets/css/$stylesheet_name.css` with
 `include_script( $script_name );`
 
 Will include a link to the script at `/assets/scripts/$script_name.js` with a revision number applied
+
+
+Building
+-------
+
+For Ruby dev's (or anyone else comfortable on the command line), R&V includes a few rake tasks to make life a little nicer.
+
+### Sass
+
+run `rake sass` to process the sass/scss files in `/assets/css/scss` and builds them in `/assets/css`
+
+### Scripts
+
+R&S includes [juicer](http://cjohansen.no/en/ruby/juicer_a_css_and_javascript_packaging_tool) for script packaging. You can include scripts in other files by including the @depends directive at the head of the file
+
+    /**
+    **  @depends script.name.js
+    **/    
+
+Each js file to be processed needs to be added to the scripts array in the rake file and they will be processed from `assets/scripts/script.name.js` and output to `script.name.min.js`

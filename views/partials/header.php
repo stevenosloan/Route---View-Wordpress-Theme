@@ -19,8 +19,7 @@
 
   <?php 
     include_stylesheet( 'main' );
-    include_stylesheet( 'plugins' );
-    include_script( 'modernizr-build' ); 
+    include_script( 'tests.min' ); 
   ?>
   <script type="text/javascript">
     
