@@ -5,20 +5,16 @@
 
 	<meta charset="UTF-8" />
 	<?php
-		$template_url = get_bloginfo('template_url');
-		$asset_url = $template_url . '/assets/';
-		$asset_directory = get_stylesheet_directory() . '/assets/';
-		
 		$analytics_options = get_option('analytics_options');
 		$analyticsID = $analytics_options['analyticsID'];
 		$use_analytics = $analytics_options['use_analytics'];
 	?>
 	
 	<title><?php bloginfo('name') ?><?php wp_title(' - '); ?></title>
-	<link rel="icon" href="<?php echo $asset_url; ?>images/favicon.png" type="image/png" />
+	<link rel="icon" href="<?php echo $GLOBALS['asset_url']; ?>images/favicon.png" type="image/png" />
 
   <?php 
-    include_stylesheet( 'main' );
+    include_stylesheet( 'site' );
     include_script( 'tests.min' ); 
   ?>
   <script type="text/javascript">
@@ -28,7 +24,7 @@
       {
         // jquery & init
         load: 
-          ['http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js' , '<?php echo $asset_url; ?>scripts/init.<?php echo filemtime( $asset_directory . "scripts/init.js"); ?>.js'],
+          ['http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js' , '<?php echo $GLOBALS['asset_url']; ?>scripts/init.<?php echo filemtime( $GLOBALS['asset_directory'] . "scripts/init.js"); ?>.js'],
           complete: function () {
             console.log('jquery & init loaded');
             jqueryInit();
