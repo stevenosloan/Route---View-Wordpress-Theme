@@ -5,12 +5,18 @@ require 'juicer'
 
 
 desc "compile sass files"
-task :sass do
+namespace :sass do
 
-  if system "sass --update --stop-on-error ./assets/css/scss:./assets/css --style expanded"
-    puts "sass build complete".colorize( :green )
-  else
-    puts "sass error".colorize( :red )
+  task :build do
+    if system "sass --update --stop-on-error ./assets/css/scss:./assets/css --style expanded"
+      puts "sass build complete".colorize( :green )
+    else
+      puts "sass error".colorize( :red )
+    end
+  end
+
+  task :watch do
+    system "sass --watch ./assets/css/scss:./assets/css"
   end
   
 end

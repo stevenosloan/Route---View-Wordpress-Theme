@@ -54,7 +54,9 @@ For Ruby dev's (or anyone else comfortable on the command line), R&V includes a 
 
 ### Sass
 
-run `rake sass` to process the sass/scss files in `/assets/css/scss` and builds them in `/assets/css`
+run `rake sass:build` to process the sass/scss files in `/assets/css/scss` and builds them in `/assets/css`
+
+running `rake sass:watch` watches the sass files and builds them on a change
 
 ### Scripts
 
