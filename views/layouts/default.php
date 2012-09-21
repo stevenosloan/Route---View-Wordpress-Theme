@@ -1,9 +1,7 @@
 <?php  
   render_partial('header');
-  
-    echo '<h1>Default Layout</h1>';
     
-    include_loop( 'default' );
+    yield( $GLOBALS['view'] );
   
   render_partial('footer');
 ?>

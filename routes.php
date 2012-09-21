@@ -5,6 +5,7 @@
   */
   $template_url = get_bloginfo( 'template_url' );
   $template_directory = get_stylesheet_directory();
+  $base = get_bloginfo('url');
 
   $GLOBALS = array(
     'template_url' => $template_url,
@@ -13,8 +14,12 @@
   );
   
   if( is_single() ){
-    render_layout( 'single' );
+
+    use_view( 'single' );
+  
   } else { 
-    render_layout( 'default' );
+  
+    use_view( 'default' );
+  
   }
 ?>

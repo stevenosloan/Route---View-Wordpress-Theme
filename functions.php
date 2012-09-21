@@ -38,6 +38,11 @@ function the_category_unlinked($separator = '') {
 **********************************************************/
 
 define( 'THEME_DIR', dirname(__FILE__) );
+$GOBALS['view'] = "default";
+
+function render( $file_name ){
+  include ( THEME_DIR . '/views/' . $file_name . '.php' );
+}
 
 function render_layout( $layout_name ){
   include ( THEME_DIR . '/views/layouts/' . $layout_name . '.php' );
@@ -47,16 +52,39 @@ function render_partial( $partial_name ){
   include ( THEME_DIR . '/views/partials/' . $partial_name . '.php') ;
 }
 
-function include_loop( $loop_name ){
-  include ( THEME_DIR . '/views/loops/' . $loop_name . '.php') ;
+function render_loop( $loop_name ){
+  include ( THEME_DIR . '/views/loops/' . $loop_name . '.php');
 }
 
-function include_script( $script_name ){
+function yield( $view_name = "default" ){
+  render( $view_name );
+}
+
+function use_view( $view_name, $layout_name = "default" ){
+
+  $GLOBALS['view'] = $view_name;
+  render_layout( $layout_name );
+
+}
+
+function get_versioned_script( $script_name ){
 
   $script_url = get_bloginfo('template_url') . '/assets/scripts/';
   $script_directory = get_stylesheet_directory() . '/assets/scripts/';
 
-  echo '<script type="text/javascript" src="', $script_url, $script_name, '.', filemtime( $script_directory . $script_name . ".js"), '.js', '" ></script>';
+  return $script_url . $script_name . '.' . filemtime( $script_directory . $script_name . ".js") . '.js';
+
+}
+
+function versioned_script( $script_name ){
+
+  echo get_versioned_script( $script_name );
+
+}
+
+function include_script( $script_name ){
+
+  echo '<script type="text/javascript" src="', get_versioned_script( $script_name ), '" ></script>';
 
 }
 

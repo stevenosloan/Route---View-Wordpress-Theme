@@ -1,3 +1,6 @@
 <?php
-echo '<li><h2>'.get_the_title().'</h2>'.get_the_content().'</li>';
+echo '<li>';
+	echo '<h2>', get_the_title(), '</h2>';
+	echo get_the_content(); 
+echo '</li>';
 ?>

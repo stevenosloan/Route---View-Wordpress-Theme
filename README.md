@@ -23,9 +23,7 @@ Helper Functions
 
 
 ### Layouts
-`render_layout( $layout_name );`
-
-If you are coming from some other environments, layouts will act a little different than expected. They act as actualy separate layouts vs. wrappers you'd see in something like RoR. So it's suggested to keep create a `header` and/or `footer` partial to keep things DRY.
+`use_view( $view_name, $layout_name = 'default' );`
 
 ### Partials
 `render_partial( $partial_name );`
