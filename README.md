@@ -65,3 +65,9 @@ R&S includes [juicer](http://cjohansen.no/en/ruby/juicer_a_css_and_javascript_pa
     **/    
 
 Each js file to be processed needs to be added to the scripts array in the rake file and they will be processed from `assets/scripts/script.name.js` and output to `script.name.min.js`
+
+
+Meta
+----
+
+Released under the [MIT License](http://opensource.org/licenses/mit-license.php)
